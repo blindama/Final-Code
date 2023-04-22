@@ -1,0 +1,17 @@
+R = float(input('Enter the radious of the shaft (in): '))
+ys = float(input('Enter the yield strength of chosen material (psi): '))
+FS = float(input('Enter the factor of safety: '))
+t = float(input('Enter the width of the square key based on the Radius of axle (in): '))
+
+T = 38.6 * 12  # torque lbin
+al = 50.25  # axial load ftlbs
+fos = 2  # factor of safety
+sst = 0.577 * ys  # shear strength
+F = T / R  # force at surface
+lshear = (FS * F) / (sst * t)  # length required due to shear
+lcrush = (FS * F) / (sst * t * 2)  # length required due to crush
+
+# Calculation of shear key dimensions
+
+# Output values
+print(f'Length (l) = {lcrush:.2f} mm')
